@@ -1,6 +1,6 @@
 import math
 
-print('  _____ _        _   _     _   _               \n /  ___| |      | | (_)   | | (_)              \n \ `--.| |_ __ _| |_ _ ___| |_ _  ___          \n  `--. | __/ _` | __| / __| __| |/ __|         \n /\__/ | || (_| | |_| \__ | |_| | (__          \n \____/ \__\__,_|\__|_|___/\__|_|\___|         \n            _            _       _             \n           | |          | |     | |            \n   ___ __ _| | ___ _   _| | __ _| |_ ___  _ __ \n  / __/ _` | |/ __| | | | |/ _` | __/ _ \| ˙__|\n | (_| (_| | | (__| |_| | | (_| | || (_) | |   \n  \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   \n')
+# print('  _____ _        _   _     _   _               \n /  ___| |      | | (_)   | | (_)              \n \ `--.| |_ __ _| |_ _ ___| |_ _  ___          \n  `--. | __/ _` | __| / __| __| |/ __|         \n /\__/ | || (_| | |_| \__ | |_| | (__          \n \____/ \__\__,_|\__|_|___/\__|_|\___|         \n            _            _       _             \n           | |          | |     | |            \n   ___ __ _| | ___ _   _| | __ _| |_ ___  _ __ \n  / __/ _` | |/ __| | | | |/ _` | __/ _ \| ˙__|\n | (_| (_| | | (__| |_| | | (_| | || (_) | |   \n  \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   \n')
 datagiven = []
 adatokszama = 0
 adatosszeg = 0
@@ -21,10 +21,21 @@ print(f'Az érvényes megadott adatok: {datagiven}')
 
 def atlag():
     print(f'Az átlag: {adatosszeg/adatokszama}')
+def median():
+    datagiven.sort()
+    kindian = datagiven[int(adatokszama/2)-1]
+    if (adatokszama-1) % 2 == 0:
+        print(kindian + 0.5)
+    else:
+        print(kindian)
 
-print('Érvényes műveletek:...')
+
+print('Érvényes műveletek: *átlag*, *szórás*, *medián*, *módusz*, *terjedelem*, *szumma*, *elemszám*, *szerkeszt*')
 muvelet = input('Az elvégzendő művelet: ')
 
 if muvelet == 'átlag':
     atlag()
-# adatok szerkesztése is kéne, mint művelet                                  
+elif muvelet == 'medián':
+    median()
+else:
+    print('Érvénytelen művelet!')
