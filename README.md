@@ -1,0 +1,2 @@
+# statistic-calculator
+Statistic calculator
