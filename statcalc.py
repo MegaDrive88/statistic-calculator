@@ -9,6 +9,7 @@ while True:
     adatokszama += 1
     adat1 = input(f'Tárolandó adat {adatokszama}: ')
     if adat1 == 'stop':
+        adatokszama -=1
         break            
     try:
         adatosszeg = float(adatosszeg) + float(adat1)
@@ -17,6 +18,7 @@ while True:
         print('Csak szám adható meg adatnak')
         adatokszama -=1
         if adat1 == 'stop':
+            adatokszama -=1
             break 
 print(f'Az érvényes megadott adatok: {datagiven}')
 atlaag = adatosszeg/adatokszama
@@ -55,30 +57,39 @@ def szoras():
 #             gyakr = i
 def szumma():
     print(f'Az adatok összege: {adatosszeg}')
+def elemszam():
+    print(adatokszama)
+def szerkeszt():
+    print(f'Az ön adatai: {datagiven}')
+    melyik = input('Írja be, hányadik elemet szeretné szerkeszteni: ')
 print('Érvényes műveletek: *átlag*, *medián*, *terjedelem*, *szórás*, *módusz*, *szumma*, *elemszám*, *szerkeszt*, *semmi*')
 muvelet = input('Az elvégzendő művelet: ')
 while True:
     if muvelet == 'átlag':
         atlag()
-        break
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'medián':
         median()
-        break
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'terjedelem':
         terj()
-        break
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'szórás':
         szoras()
-        break
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'módusz':
         print('coming soon')
-        break
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'szumma':
         szumma()
-        break
+        muvelet = input('Az elvégzendő művelet: ')
+    elif muvelet == 'elemszám':
+        elemszam()
+        muvelet = input('Az elvégzendő művelet: ')
     elif muvelet == 'semmi':
         print('Semmilyen művelet nem lesz elvégezve')
-        sys.exit
+        break
     else:
         print('Érvénytelen művelet!')
-        break
+        muvelet = input('Az elvégzendő művelet: ')
+sys.exit
