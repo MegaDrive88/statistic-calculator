@@ -1,4 +1,5 @@
 import math
+import sys
 
 # print('  _____ _        _   _     _   _               \n /  ___| |      | | (_)   | | (_)              \n \ `--.| |_ __ _| |_ _ ___| |_ _  ___          \n  `--. | __/ _` | __| / __| __| |/ __|         \n /\__/ | || (_| | |_| \__ | |_| | (__          \n \____/ \__\__,_|\__|_|___/\__|_|\___|         \n            _            _       _             \n           | |          | |     | |            \n   ___ __ _| | ___ _   _| | __ _| |_ ___  _ __ \n  / __/ _` | |/ __| | | | |/ _` | __/ _ \| ˙__|\n | (_| (_| | | (__| |_| | | (_| | || (_) | |   \n  \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   \n')
 datagiven = []
@@ -47,9 +48,14 @@ def szoras():
         preosszeg = preosszeg + preszoras
     rootable = preosszeg/adatokszama
     print(f'A szórás: {round(math.sqrt(rootable), 3)}')
-
-
-print('Érvényes műveletek: *átlag*, *medián*, *terjedelem*, *szórás*, *módusz*, *szumma*, *elemszám*, *szerkeszt*')
+# def modusz():
+#     gyakr = 0
+#     for i in datagiven:
+#         while i in datagiven:
+#             gyakr = i
+def szumma():
+    print(f'Az adatok összege: {adatosszeg}')
+print('Érvényes műveletek: *átlag*, *medián*, *terjedelem*, *szórás*, *módusz*, *szumma*, *elemszám*, *szerkeszt*, *semmi*')
 muvelet = input('Az elvégzendő művelet: ')
 while True:
     if muvelet == 'átlag':
@@ -64,5 +70,15 @@ while True:
     elif muvelet == 'szórás':
         szoras()
         break
+    elif muvelet == 'módusz':
+        print('coming soon')
+        break
+    elif muvelet == 'szumma':
+        szumma()
+        break
+    elif muvelet == 'semmi':
+        print('Semmilyen művelet nem lesz elvégezve')
+        sys.exit
     else:
         print('Érvénytelen művelet!')
+        break
