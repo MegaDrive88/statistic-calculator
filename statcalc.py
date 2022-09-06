@@ -28,14 +28,27 @@ def median():
         print(kindian + 0.5)
     else:
         print(kindian)
+def terj():
+    maxim = 0
+    minim = math.inf
+    datagiven.sort()
+    for i in datagiven:
+        if i >= maxim:
+            maxim = i
+    for j in datagiven:
+        if i <= minim:
+            minim = j
+    print(maxim-minim)
 
 
-print('Érvényes műveletek: *átlag*, *szórás*, *medián*, *módusz*, *terjedelem*, *szumma*, *elemszám*, *szerkeszt*')
+print('Érvényes műveletek: *átlag*, *medián*, *terjedelem*, *szórás*, *módusz*, *szumma*, *elemszám*, *szerkeszt*')
 muvelet = input('Az elvégzendő művelet: ')
 
 if muvelet == 'átlag':
     atlag()
 elif muvelet == 'medián':
     median()
+elif muvelet == 'terjedelem':
+    terj()
 else:
     print('Érvénytelen művelet!')
