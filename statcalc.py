@@ -18,16 +18,16 @@ while True:
         if adat1 == 'stop':
             break 
 print(f'Az érvényes megadott adatok: {datagiven}')
-
+atlaag = adatosszeg/adatokszama
 def atlag():
     print(f'Az átlag: {adatosszeg/adatokszama}')
 def median():
     datagiven.sort()
     kindian = datagiven[int(adatokszama/2)-1]
     if (adatokszama-1) % 2 == 0:
-        print(kindian + 0.5)
+        print(f'A medián: {kindian + 0.5}')
     else:
-        print(kindian)
+        print(f' A medián: {kindian}')
 def terj():
     maxim = 0
     minim = math.inf
@@ -38,17 +38,31 @@ def terj():
     for j in datagiven:
         if i <= minim:
             minim = j
-    print(maxim-minim)
+    print(f'A terjedelem: {maxim-minim}')
+def szoras():
+    preosszeg = 0
+    datagiven.sort(reverse=True)
+    for i in datagiven:
+        preszoras = (i - atlaag) ** 2
+        preosszeg = preosszeg + preszoras
+    rootable = preosszeg/adatokszama
+    print(f'A szórás: {round(math.sqrt(rootable), 3)}')
 
 
 print('Érvényes műveletek: *átlag*, *medián*, *terjedelem*, *szórás*, *módusz*, *szumma*, *elemszám*, *szerkeszt*')
 muvelet = input('Az elvégzendő művelet: ')
-
-if muvelet == 'átlag':
-    atlag()
-elif muvelet == 'medián':
-    median()
-elif muvelet == 'terjedelem':
-    terj()
-else:
-    print('Érvénytelen művelet!')
+while True:
+    if muvelet == 'átlag':
+        atlag()
+        break
+    elif muvelet == 'medián':
+        median()
+        break
+    elif muvelet == 'terjedelem':
+        terj()
+        break
+    elif muvelet == 'szórás':
+        szoras()
+        break
+    else:
+        print('Érvénytelen művelet!')
